@@ -1,0 +1,33 @@
+{
+"manifest_version": 2,
+"version": "1", // version string required
+"name": "menu",
+"description": "menu",
+"browser_specific_settings": // required
+{
+"gecko":
+{
+"id": "menu@localhost", // format like email
+"strict_min_version": "42.0"
+}
+},
+"icons":
+{
+"32": "png/menu.png"
+},
+"permissions": ["menus", "tabs"],
+// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#API_permissions
+"background":
+{
+"scripts": ["menu.background.webextensions.js"]
+},
+"content_scripts":
+[
+{
+"matches": ["<all_urls>"],
+"js": ["menu.content.webextensions.js"]
+}
+]
+}
+// web-ext build
+// xpinstall.signatures.required: false
